@@ -1,17 +1,24 @@
 class Wheel {
-    constructor(x, y, r) {
-        this.body = createSprite(x, y);
-        this.pos{x, y};
+    constructor(x, y, r, img) {
+        this.pos = {x: x, y: y};
         this.radius = r;
-    }
-    setImage(image) {
-        this.body = addImage(image);
+        this.texture = createSprite(x, y);
+        this.texture.addImage(img);
     }
 }
 
 class Car {
-    constructor(x, y, rad_wheel) {
-        this.wheel = new Wheel(x - 100, y - 100, rad_wheel);
-        this.wheel1 = new Wheel(x + 100, y - 100, rad_wheel);
+    constructor(x, y, rad_wheel, img) {
+        this.pos = {x: x, y: y};
+        this.wheel = new Wheel(x - 100, y - 100, rad_wheel, img);
+        this.wheel1 = new Wheel(x + 100, y - 100, rad_wheel, img);
+    }
+}
+
+class Floor {
+    constructor(x, y, img) {
+        this.floor = createSprite(x, y);
+        this.floor.addImage(img);
+        this.floor.immovable = true;
     }
 }

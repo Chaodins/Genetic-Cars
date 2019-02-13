@@ -1,8 +1,8 @@
-var floor;
-var cars[];
+var floors = [];
 var floor_img;
 var wheel_img;
 var GRAVITY = 1;
+var car;
 
 function load() {
     floor_img = loadImage('assets/floor.png');
@@ -12,29 +12,31 @@ function load() {
 function setup() {
     createCanvas(1200, 800);
     load();
-    floor = createSprite(300 + 600, 700);
-    floor.addImage(floor_img);
-    floor.immovable = true;
-    floor = createSprite(300, 700);
-    floor.addImage(floor_img);
-    floor.immovable = true;
-    var car = new Car(200, 200, createSprite(x - 100, y - 100), createSprite(x + 100, y - 100)
+
+    // car create
+    car = new Car(200, 200, 10, wheel_img);
+
+    // floor create
+    floors[0] = new Floor(300 + 600, 700, floor_img);
+    floors[1] = new Floor(300, 700, floor_img);
 }
 
 function draw() {
     background(220);
-    wheel.bounce(floor)
-    if (floor.overlapPixel(wheel.position.x, wheel.position.y + 50) == false) {
-        wheel.velocity.y += GRAVITY;
-        if (wheel.velocity.x > 0)
-            wheel.velocity.x -= 1;
-    }
-    while (floor.overlapPixel(wheel.position.x, wheel.position.y + 50)) {
-        wheel.position.y--;
-        wheel.velocity.y = 0;
-        wheel.velocity.x += 1;
-        if (wheel.velocity.x > 20)
-            wheel.velocity.x -=1;
-    }
+    // for (var i = 0; i < 2; i++) {
+    //     car.wheel.bounce(floors[i]);
+    //     if (floors[i].overlapPixel(car.wheel.position.x, car.wheel.position.y + 50) == false) {
+    //         car.wheel.velocity.y += GRAVITY;
+    //         if (car.wheel.velocity.x > 0)
+    //             car.wheel.velocity.x -= 1;
+    //     }
+    //     while (floors[i].overlapPixel(car.wheel.position.x, car.wheel.position.y + 50)) {
+    //         car.wheel.position.y--;
+    //         car.wheel.velocity.y = 0;
+    //         car.wheel.velocity.x += 1;
+    //         if (car.wheel.velocity.x > 20)
+    //             car.wheel.velocity.x -= 1;
+    //     }
+    // }
     drawSprites();
 }
