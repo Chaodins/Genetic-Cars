@@ -23,20 +23,36 @@ function setup() {
 
 function draw() {
     background(220);
-    // for (var i = 0; i < 2; i++) {
-    //     car.wheel.bounce(floors[i]);
-    //     if (floors[i].overlapPixel(car.wheel.position.x, car.wheel.position.y + 50) == false) {
-    //         car.wheel.velocity.y += GRAVITY;
-    //         if (car.wheel.velocity.x > 0)
-    //             car.wheel.velocity.x -= 1;
-    //     }
-    //     while (floors[i].overlapPixel(car.wheel.position.x, car.wheel.position.y + 50)) {
-    //         car.wheel.position.y--;
-    //         car.wheel.velocity.y = 0;
-    //         car.wheel.velocity.x += 1;
-    //         if (car.wheel.velocity.x > 20)
-    //             car.wheel.velocity.x -= 1;
-    //     }
-    // }
+    camera.position.x = car.getX();
+    for (var i = 0; i < 2; i++) {
+        car.wheel.texture.bounce(floors[i].floor);
+        if (floors[i].floor.overlapPixel(car.wheel.pos.x, car.wheel.pos.y + 50) == false) {
+            car.wheel.texture.velocity.y += GRAVITY;
+            if (car.wheel.texture.velocity.x > 0)
+                car.wheel.texture.velocity.x -= 1;
+        }
+        while (floors[i].floor.overlapPixel(car.wheel.pos.x, car.wheel.pos.y + 50)) {
+            car.wheel.position.y--;
+            car.wheel.texture.velocity.y = 0;
+            car.wheel.texture.velocity.x += 1;
+            if (car.wheel.texture.velocity.x > 20)
+                car.wheel.texture.velocity.x -= 1;
+        }
+    }
+    for (var i = 0; i < 2; i++) {
+        car.wheel1.texture.bounce(floors[i].floor);
+        if (floors[i].floor.overlapPixel(car.wheel1.pos.x, car.wheel1.pos.y + 50) == false) {
+            car.wheel1.texture.velocity.y += GRAVITY;
+            if (car.wheel1.texture.velocity.x > 0)
+                car.wheel1.texture.velocity.x -= 1;
+        }
+        while (floors[i].floor.overlapPixel(car.wheel1.pos.x, car.wheel1.pos.y + 50)) {
+            car.wheel1.position.y--;
+            car.wheel1.texture.velocity.y = 0;
+            car.wheel1.texture.velocity.x += 1;
+            if (car.wheel1.texture.velocity.x > 20)
+                car.wheel1.texture.velocity.x -= 1;
+        }
+    }
     drawSprites();
 }

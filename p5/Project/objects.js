@@ -13,6 +13,15 @@ class Car {
         this.wheel = new Wheel(x - 100, y - 100, rad_wheel, img);
         this.wheel1 = new Wheel(x + 100, y - 100, rad_wheel, img);
     }
+    getX() {
+        return (this.pos.x);
+    }
+    getY() {
+        return (this.pos.y);
+    }
+    // car_move() {
+    //     if ()
+    // }
 }
 
 class Floor {
