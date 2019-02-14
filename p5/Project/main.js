@@ -19,6 +19,7 @@ function setup() {
     // floor create
     floors[0] = new Floor(300 + 600, 700, floor_img);
     floors[1] = new Floor(300, 700, floor_img);
+    input_setup();
 }
 
 function draw() {

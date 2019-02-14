@@ -1,34 +1,19 @@
 let input, button, greeting;
 
-function setup() {
-  // create canvas
-  createCanvas(710, 400);
-
-  input = createInput();
-  input.position(20, 65);
-
-  button = createButton('submit');
-  button.position(input.x + input.width, 65);
-  button.mousePressed(greet);
-
-  greeting = createElement('h2', 'what is your name?');
-  greeting.position(20, 5);
-
-  textAlign(CENTER);
-  textSize(50);
+function input_setup() {
+    input = createInput();
+    input.position(1300, 150);
+    button = createButton('Go!');
+    button.position(input.x + input.width, 150);
+    button.mousePressed(greet);
+    greeting = createElement('h2', 'Number of cars :');
+    greeting.position(1303, 119);
+    greeting.style('font-size', '14px');
+    greeting.style('font-family', 'Liberation Serif');
+    greeting.style('font-style', 'normal');
 }
 
 function greet() {
-  const name = input.value();
-  greeting.html('hello ' + name + '!');
-  input.value('');
-
-  for (let i = 0; i < 200; i++) {
-    push();
-    fill(random(255), 255, 255);
-    translate(random(width), random(height));
-    rotate(random(2 * PI));
-    text(name, 0, 0);
-    pop();
-  }
+    const number = input.value();
+    input.value('');
 }
